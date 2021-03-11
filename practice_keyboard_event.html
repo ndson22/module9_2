@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practice_keyboadrd_event</title>
+    <style>
+    	/*.test{
+    		position: relative;
+    		width: 100%;
+    		height: 100%;
+    	}*/
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body onload="docReady()">
+<div class="test">
+    <img src="https://james.codegym.vn/pluginfile.php/27447/mod_assign/intro/1.png" id="myImg"  alt="" />
+
+</div>
+<script>
+    // let imgObj = document.getElementById("myImg");
+    function moveright() {
+        
+      	var di = document.getElementById('myImg');
+	var sty = getComputedStyle(di);
+	var left = sty.getPropertyValue("left");
+	console.log=(left);
+        left = left + 10;
+    }
+
+    function moveleft() {
+        let imgObj = document.getElementById("myImg");
+        imgObj.style.left = parseInt(imgObj.style.left) - 10 + 'px';
+    }
+
+    function moveabove() {
+        let imgObj = document.getElementById("myImg");
+        imgObj.style.top = parseInt(imgObj.style.top) - 10 + 'px';
+    }
+
+    function movebelow() {
+        let imgObj = document.getElementById("myImg");
+        imgObj.style.top = parseInt(imgObj.style.top) + 10 + 'px';
+    }
+
+    function moveselection(evt) {
+        switch (evt.keyCode) {
+            case 39:
+                moveright();
+                break;
+            case 37:
+                moveleft();
+                break;
+            case 38:
+                moveabove();
+                break;
+            case 40:
+                movebelow();
+                break;
+        }
+    }
+
+    function docReady() {
+        window.addEventListener("keydown", moveselection);
+    }
+</script>
+
+</body>
+</html>
